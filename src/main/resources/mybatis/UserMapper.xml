@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhs.dao.UserDao">
+ <select id="findAll" resultType="com.lhs.entity.User" parameterType="java.lang.String">
+  select user_id, user_name, user_password, user_email 
+  from user
+ </select>
+ <select id="selectAll" resultType="com.lhs.entity.User">
+    select
+    user_id, user_name, user_password, user_email 
+    from user
+</select>
+
+<update id="creatUser">
+	CREATE TABLE If Not Exists `user` (
+		`user_id`  int(11) NOT NULL AUTO_INCREMENT ,
+		`user_name`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+		`user_password`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+		`user_email`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+		PRIMARY KEY (`user_id`)
+		)
+		ENGINE=InnoDB
+		DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+		AUTO_INCREMENT=105
+		ROW_FORMAT=DYNAMIC
+</update>
+</mapper>
